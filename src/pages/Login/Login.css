@@ -12,10 +12,6 @@
   box-sizing: border-box;
 
   background:
-    linear-gradient(
-      rgba(3, 23, 39, 0.25),
-      rgba(5, 45, 75, 0.25)
-    ),
     url('/fundo-login.png');
 
   background-size: cover;
@@ -28,7 +24,7 @@
   width: 100%;
   max-width: 300px;
 
-  padding: 22px 20px;
+  padding: 16px 20px;
 
   box-sizing: border-box;
 
@@ -208,7 +204,7 @@
     width: 86%;
     max-width: 285px;
 
-    padding: 18px 17px;
+    padding: 14px 17px;
 
     border-radius: 14px;
   }
