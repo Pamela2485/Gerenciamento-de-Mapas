@@ -1,0 +1,265 @@
+.pagina-login {
+  width: 100%;
+  min-height: 100vh;
+  min-height: 100dvh;
+
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: 15px;
+  box-sizing: border-box;
+
+  background:
+    linear-gradient(
+      rgba(3, 23, 39, 0.25),
+      rgba(5, 45, 75, 0.25)
+    ),
+    url('/fundo-login.png');
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+
+.card-login {
+  width: 100%;
+  max-width: 300px;
+
+  padding: 22px 20px;
+
+  box-sizing: border-box;
+
+  background: #ffffff;
+
+  border-radius: 16px;
+
+  box-shadow:
+    0 12px 35px
+    rgba(0, 0, 0, 0.28);
+
+  text-align: center;
+}
+
+
+.logo-login {
+  width: 110px;
+  height: 110px;
+
+  object-fit: contain;
+
+  margin-bottom: 10px;
+}
+
+
+.card-login h1 {
+  margin: 0;
+
+  color: #051455;
+
+  font-family: "Times New Roman", Times, serif;
+  font-size: 23px;
+  font-weight: 800;
+}
+
+
+.card-login p {
+  margin: 5px 0 18px;
+
+  color: #71838b;
+
+  font-size: 11px;
+}
+
+
+.login-label {
+  display: block;
+
+  margin-bottom: 5px;
+
+  color: #1d2229;
+
+  font-size: 11px;
+  font-weight: 600;
+
+  text-align: left;
+}
+
+
+.card-login input {
+  width: 100%;
+  height: 40px;
+
+  box-sizing: border-box;
+
+  padding: 0 11px;
+
+  margin-bottom: 11px;
+
+  border: 1px solid #d5e0e4;
+  border-radius: 8px;
+
+  background: #ffffff;
+
+  color: #1d2229;
+
+  font-size: 12px;
+
+  outline: none;
+}
+
+
+.card-login input:focus {
+  border-color: #0f2a8c;
+
+  box-shadow:
+    0 0 0 3px
+    rgb(5, 4, 21);
+}
+
+
+.card-login .esqueci-senha {
+  display: block;
+
+  width: auto;
+  height: auto;
+
+  margin: -3px auto 12px;
+  padding: 0;
+
+  border: none;
+  border-radius: 0;
+
+  background: transparent !important;
+
+  box-shadow: none;
+
+  color: #555;
+
+  font-size: 10px;
+  font-weight: 400;
+
+  cursor: pointer;
+}
+
+
+.card-login .esqueci-senha:hover,
+.card-login .esqueci-senha:focus,
+.card-login .esqueci-senha:active {
+  color: #123f4d;
+
+  text-decoration: underline;
+
+  background: transparent !important;
+
+  box-shadow: none;
+}
+
+
+.card-login button[type="submit"] {
+  width: 100%;
+  height: 40px;
+
+  padding: 0;
+
+  border: none;
+  border-radius: 8px;
+
+  background: #051455;
+
+  color: #ffffff;
+
+  font-size: 13px;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 6px 16px
+    rgba(27, 47, 135, 0.095);
+}
+
+
+.card-login button[type="submit"]:hover {
+  background: #0a1f36;
+}
+
+
+.card-login button[type="submit"]:disabled {
+  opacity: 0.6;
+
+  cursor: default;
+}
+
+
+@media (max-width: 600px) {
+
+  .pagina-login {
+    padding: 10px;
+
+    background-size: cover;
+    background-position: center;
+  }
+
+
+  .card-login {
+    width: 86%;
+    max-width: 285px;
+
+    padding: 18px 17px;
+
+    border-radius: 14px;
+  }
+
+
+  .logo-login {
+    width: 120px;
+    height: 120px;
+
+    margin-bottom: 5px;
+  }
+
+
+  .card-login h1 {
+    font-size: 20px;
+  }
+
+
+  .card-login p {
+    margin-bottom: 14px;
+
+    font-size: 10px;
+  }
+
+
+  .login-label {
+    font-size: 10px;
+  }
+
+
+  .card-login input {
+    height: 38px;
+
+    margin-bottom: 9px;
+
+    font-size: 11px;
+  }
+
+
+  .card-login button[type="submit"] {
+    height: 38px;
+
+    font-size: 12px;
+  }
+
+
+  .card-login .esqueci-senha {
+    margin-bottom: 10px;
+
+    font-size: 9px;
+  }
+
+}
+

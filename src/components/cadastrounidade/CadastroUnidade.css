@@ -1,0 +1,266 @@
+/* =====================================================
+   CADASTRO DE UNIDADES
+===================================================== */
+
+.formulario-unidade {
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 25px;
+  box-sizing: border-box;
+
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.campo-formulario {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.campo-formulario label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #374151;
+}
+
+.campo-formulario input,
+.campo-formulario select {
+  width: 100%;
+  height: 42px;
+  padding: 0 12px;
+
+  box-sizing: border-box;
+
+  border: 1px solid #d1d5db;
+  border-radius: 7px;
+
+  background: #ffffff;
+
+  font-size: 14px;
+  color: #1f2937;
+
+  outline: none;
+}
+
+.campo-formulario input:focus,
+.campo-formulario select:focus {
+  border-color: #1683d8;
+  box-shadow: 0 0 0 2px rgba(22, 131, 216, 0.12);
+}
+
+/* =====================================================
+   LOCALIZAÇÃO
+===================================================== */
+
+.bloco-localizacao {
+  grid-column: 1 / -1;
+
+  padding: 20px;
+
+  background: #f8fafc;
+
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+}
+
+.bloco-localizacao h3,
+.bloco-fotos h3 {
+  margin: 0 0 15px 0;
+
+  font-size: 17px;
+  color: #1f2937;
+}
+
+.bloco-localizacao > button {
+  margin-bottom: 18px;
+
+  padding: 10px 15px;
+
+  border: none;
+  border-radius: 7px;
+
+  background: #1683d8;
+  color: white;
+
+  font-size: 14px;
+  font-weight: 600;
+
+  cursor: pointer;
+}
+
+.bloco-localizacao > button:hover {
+  background: #126eaf;
+}
+
+.linha-localizacao {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
+
+/* =====================================================
+   FOTOS
+===================================================== */
+
+.bloco-fotos {
+  grid-column: 1 / -1;
+
+  padding: 20px;
+
+  background: #f8fafc;
+
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.bloco-fotos h3 {
+  grid-column: 1 / -1;
+}
+
+.bloco-fotos input[type="file"] {
+  height: auto;
+  padding: 10px;
+  background: #ffffff;
+}
+
+/* =====================================================
+   BOTÕES DO FORMULÁRIO
+===================================================== */
+
+.botoes-formulario {
+  grid-column: 1 / -1;
+
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+
+  padding-top: 5px;
+}
+
+.botoes-formulario button {
+  min-width: 140px;
+
+  padding: 11px 18px;
+
+  border: none;
+  border-radius: 7px;
+
+  font-size: 14px;
+  font-weight: 600;
+
+  cursor: pointer;
+}
+
+.botoes-formulario button[type="button"] {
+  background: #e5e7eb;
+  color: #374151;
+}
+
+.botoes-formulario button[type="button"]:hover {
+  background: #d1d5db;
+}
+
+.botoes-formulario button[type="submit"] {
+  background: #1683d8;
+  color: white;
+}
+
+.botoes-formulario button[type="submit"]:hover {
+  background: #126eaf;
+}
+
+.botoes-formulario button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* =====================================================
+   RESPONSIVO
+===================================================== */
+
+@media (max-width: 800px) {
+
+  .formulario-unidade {
+    grid-template-columns: 1fr;
+  }
+
+  .bloco-localizacao,
+  .bloco-fotos,
+  .botoes-formulario {
+    grid-column: auto;
+  }
+
+  .linha-localizacao,
+  .bloco-fotos {
+    grid-template-columns: 1fr;
+  }
+
+  .bloco-fotos h3 {
+    grid-column: auto;
+  }
+
+}
+
+@media (max-width: 600px) {
+
+  .pagina-cadastro {
+  padding-left: 4px;
+  padding-right: 4px;
+}
+  .formulario-unidade {
+    width: 100%;
+    max-width: none;
+    margin-left: 0;
+    margin-right: 0;
+    padding: 10px;
+    border-radius: 10px;
+  }
+
+  .botoes-formulario {
+    flex-direction: column;
+  }
+
+  .botoes-formulario button {
+    width: 100%;
+  }
+  .pagina-mapa.pagina-cadastro {
+  width: 100% !important;
+  max-width: 100% !important;
+
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+
+}
+
+.pagina-mapa.pagina-cadastro .formulario-unidade {
+  width: calc(100% - 32px) !important;
+  max-width: none !important;
+
+  margin-left: auto !important;
+  margin-right: auto !important;
+
+  padding: 4px;
+
+  .bloco-localizacao {
+  padding: 6px;
+}
+
+.bloco-fotos {
+  padding: 8px;
+}
+}
+}

@@ -1,0 +1,609 @@
+/* =====================================================
+   PÁGINA INICIAL
+===================================================== */
+
+.pagina-inicio {
+  width: 100%;
+  min-height: 100vh;
+  box-sizing: border-box;
+
+  padding: 16px;
+
+  background: #e5e6e6;
+}
+
+
+/* =====================================================
+   CABEÇALHO
+===================================================== */
+
+.inicio-cabecalho {
+  margin-bottom: 14px;
+}
+
+.inicio-cabecalho h1 {
+  margin: 0;
+
+  color: #123f4d;
+
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.inicio-cabecalho p {
+  margin: 3px 0 0;
+
+  color: #6b7c85;
+
+  font-size: 12px;
+}
+
+
+/* =====================================================
+   PESQUISA
+===================================================== */
+
+.pesquisa-hidrometro {
+  width: 100%;
+  max-width: 560px;
+
+  min-height: 42px;
+
+  display: flex;
+  align-items: center;
+  gap: 7px;
+
+  padding: 4px 6px 4px 12px;
+
+  box-sizing: border-box;
+
+  background: #ffffff;
+
+  border: 1px solid #cbdde2;
+  border-radius: 9px;
+
+  box-shadow:
+    0 2px 6px
+    rgba(0, 0, 0, 0.04);
+
+  margin-bottom: 12px;
+}
+
+.pesquisa-hidrometro > span {
+  font-size: 15px;
+}
+
+.pesquisa-hidrometro input {
+  flex: 1;
+  min-width: 0;
+
+  border: none;
+  outline: none;
+
+  background: transparent;
+
+  color: #243f49;
+
+  font-size: 13px;
+
+  padding: 6px 3px;
+}
+
+.pesquisa-hidrometro input::placeholder {
+  color: #9aa9af;
+}
+
+.pesquisa-hidrometro button {
+  border: none;
+
+  background: #08345f;
+  color: #ffffff;
+
+  padding: 7px 11px;
+
+  border-radius: 6px;
+
+  font-size: 11px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  white-space: nowrap;
+}
+
+.pesquisa-hidrometro button:hover {
+  background: #0f5f75;
+}
+
+/* =====================================================
+   RESULTADO DA PESQUISA
+===================================================== */
+
+.resultado-pesquisa {
+  width: 100%;
+  max-width: 560px;
+
+  box-sizing: border-box;
+
+  margin-bottom: 16px;
+  padding: 10px 12px;
+
+  background: #ffffff;
+
+  border: 1px solid #000000;
+  border-radius: 9px;
+
+  box-shadow:
+    0 2px 6px
+    rgba(0, 0, 0, 0.05);
+}
+
+
+/* TÍTULO */
+
+.resultado-titulo {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+
+  margin-bottom: 8px;
+
+  color: #123f4d;
+
+  font-size: 13px;
+}
+
+
+/* DADOS PRINCIPAIS */
+
+.resultado-linha-principal {
+  display: grid;
+
+  grid-template-columns:
+    1.4fr 1fr 0.65fr 0.65fr;
+
+
+  gap: 8px;
+
+  padding: 8px 0;
+
+  border-top: 1px solid #edf1f3;
+  border-bottom: 1px solid #edf1f3;
+}
+
+.resultado-linha-principal > div {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.resultado-linha-principal span {
+  color: #243f49;
+
+  font-size: 9px;
+  font-weight: 600;
+}
+
+.resultado-linha-principal strong {
+  color: #0b0b0b;
+
+  font-size: 12px;
+}
+
+
+/* RODAPÉ */
+
+.resultado-rodape {
+  display: flex;
+  align-items: center;
+
+  gap: 12px;
+
+  margin-top: 8px;
+}
+
+.resultado-localidade {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+
+  margin-right: auto;
+
+  color: #243f49;
+
+  font-size: 10px;
+}
+
+.resultado-localidade strong {
+  color: #123f4d;
+
+  font-size: 11px;
+}
+
+
+/* SITUAÇÃO */
+
+.situacao-ativa {
+  color: #187a36 !important;
+
+  font-size: 11px;
+}
+
+.situacao-cortada {
+  color: #b42332 !important;
+
+  font-size: 11px;
+}
+
+
+/* BOTÃO */
+
+.botao-ver-mapa {
+  border: none;
+
+  background: #08345f;
+  color: #ffffff;
+
+  padding: 6px 9px;
+
+  border-radius: 6px;
+
+  font-size: 10px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  white-space: nowrap;
+}
+
+.botao-ver-mapa:hover {
+  background: #0f5f75;
+}
+
+
+/* =====================================================
+   RESULTADO - CELULAR
+===================================================== */
+
+@media (max-width: 600px) {
+
+  .resultado-pesquisa {
+    max-width: 100%;
+    padding: 9px;
+  }
+
+
+  .resultado-linha-principal {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+
+    gap: 7px 10px;
+  }
+
+
+  .resultado-rodape {
+    flex-wrap: wrap;
+
+    gap: 7px;
+  }
+
+
+  .resultado-localidade {
+    width: 100%;
+
+    margin-right: 0;
+  }
+
+
+  .botao-ver-mapa {
+    margin-left: auto;
+  }
+
+}
+
+
+/* =====================================================
+   NÃO ENCONTRADO
+===================================================== */
+
+.resultado-nao-encontrado {
+  width: 100%;
+  max-width: 700px;
+
+  box-sizing: border-box;
+
+  margin-bottom: 14px;
+
+  padding: 8px 10px;
+
+  background: #fff4e5;
+
+  border: 1px solid #ffd7a3;
+  border-radius: 7px;
+
+  color: #8a4b08;
+
+  font-size: 11px;
+}
+
+
+/* =====================================================
+   TÍTULO LOCALIDADES
+===================================================== */
+
+.titulo-localidades {
+  margin-top: 4px;
+  margin-bottom: 8px;
+}
+
+.titulo-localidades h2 {
+  margin: 0;
+
+  color: #123f4d;
+
+  font-size: 16px;
+  font-weight: 700;
+}
+
+
+/* =====================================================
+   GRID DOS CARDS
+===================================================== */
+
+.cards-localidades {
+  display: grid;
+
+  grid-template-columns:
+    repeat(4, 170px);
+
+  gap: 9px;
+
+  align-items: start;
+}
+
+
+/* =====================================================
+   CARD LOCALIDADE
+===================================================== */
+
+.card-localidade {
+  width: 170px;
+
+  box-sizing: border-box;
+
+  background: #26568d;
+
+  border: 1px solid #26568d;
+  border-radius: 9px;
+
+  padding: 9px;
+
+  box-shadow:
+    0 2px 6px
+    rgba(0, 0, 0, 0.04);
+
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.15s ease;
+}
+
+.card-localidade:hover {
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 4px 10px
+    rgba(0, 0, 0, 0.08);
+}
+
+
+/* =====================================================
+   CABEÇALHO DO CARD
+===================================================== */
+
+.card-localidade-topo {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+
+  margin-bottom: 7px;
+}
+
+.card-setor {
+  display: block;
+
+  color: #ffffff;
+
+  font-size: 8px;
+  font-weight: 700;
+
+  letter-spacing: 0.5px;
+
+  margin-bottom: 1px;
+}
+
+.card-localidade h3 {
+  margin: 0;
+
+  color: #ffffff;
+
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.icone-localidade {
+  font-size: 13px;
+}
+
+
+/* =====================================================
+   ATIVAS / CORTADAS
+===================================================== */
+
+.card-numeros {
+  display: grid;
+
+  grid-template-columns:
+    repeat(2, 1fr);
+
+  gap: 5px;
+
+  margin-bottom: 6px;
+}
+
+.card-numeros > div {
+  display: flex;
+  flex-direction: column;
+
+  padding: 5px 6px;
+
+  border-radius: 6px;
+}
+
+.card-numeros span {
+  font-size: 8px;
+  font-weight: 600;
+}
+
+.card-numeros strong {
+  margin-top: 1px;
+
+  font-size: 15px;
+  line-height: 1;
+}
+
+
+/* ATIVAS */
+
+.numero-ativa {
+  background: #fafbfb;
+}
+
+.numero-ativa span,
+.numero-ativa strong {
+  color: #187a36;
+}
+
+
+/* CORTADAS */
+
+.numero-cortada {
+  background: #fde5e5;
+}
+
+.numero-cortada span,
+.numero-cortada strong {
+  color: #b42332;
+}
+
+
+/* =====================================================
+   TOTAL
+===================================================== */
+
+.card-total {
+  padding-top: 5px;
+
+  border-top: 1px solid #edf1f3;
+
+  color: #f8fcfd;
+
+  font-size: 9px;
+}
+
+.card-total strong {
+  color: #ffffff;
+}
+
+
+/* =====================================================
+   TABLET
+===================================================== */
+
+@media (max-width: 1000px) {
+
+  .cards-localidades {
+    grid-template-columns:
+      repeat(3, 170px);
+  }
+
+}
+
+
+/* =====================================================
+   CELULAR
+===================================================== */
+
+@media (max-width: 600px) {
+
+  .pagina-inicio {
+    padding: 10px 6px 30px;
+  }
+
+
+  .inicio-cabecalho h1 {
+    font-size: 20px;
+  }
+
+
+  .pesquisa-hidrometro {
+    max-width: 100%;
+  }
+
+
+  .resultado-pesquisa {
+    max-width: 100%;
+  }
+
+
+  .resultado-dados {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+  }
+
+
+  .cards-localidades {
+  width: 100%;
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+
+  gap: 6px;
+
+  padding-bottom: 80px;
+
+  box-sizing: border-box;
+  
+  }
+
+
+  .card-localidade {
+  width: 100%;
+
+  min-width: 0;
+
+  box-sizing: border-box;
+
+  padding: 8px;
+  }
+
+
+  .card-localidade h3 {
+    font-size: 12px;
+  }
+
+
+  .card-numeros strong {
+    font-size: 14px;
+  }
+
+}
+.pagina-inicio {
+  min-height: 100%;
+  height: auto;
+
+  padding-bottom: 100px;
+
+  overflow: visible;
+}

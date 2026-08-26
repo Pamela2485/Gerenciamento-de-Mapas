@@ -1,0 +1,947 @@
+.pagina-rede-agua {
+  width: 100%;
+}
+
+.cabecalho-rede-agua {
+  margin-bottom: 15px;
+}
+
+.cabecalho-rede-agua h2 {
+  margin-top: 5px;
+}
+
+.mapa-rede-agua {
+  width: 100%;
+  height: 70vh;
+
+  min-height: 500px;
+
+  overflow: hidden;
+
+  border-radius: 12px;
+
+  background: #e5e7eb;
+
+  box-shadow:
+    0 2px 12px rgba(0, 0, 0, 0.10);
+}
+
+@media (max-width: 600px) {
+
+  .mapa-rede-agua {
+    height: 72vh;
+    min-height: 450px;
+    border-radius: 8px;
+  }
+
+}
+/* =====================================================
+   FORMULÁRIO DO TRECHO
+===================================================== */
+
+.formulario-trecho {
+  width: 100%;
+  max-width: 340px;
+
+  margin: 6px auto;
+
+  padding: 8px;
+
+  box-sizing: border-box;
+
+  background: #ffffff;
+  border-radius: 8px;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 2px;
+
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.12);
+}
+
+.formulario-trecho h3 {
+  margin: 0 0 4px 0;
+  font-size: 15px;
+}
+
+.formulario-trecho label {
+  margin: 2px 0 1px 0;
+
+  font-size: 12px;
+  font-weight: 600;
+
+  line-height: 1;
+}
+
+.formulario-trecho input,
+.formulario-trecho select {
+  width: 100%;
+  height: 30px;
+
+  margin: 0;
+  padding: 0 7px;
+
+  box-sizing: border-box;
+
+  font-size: 12px;
+
+  border: 1px solid #d1d5db;
+  border-radius: 5px;
+}
+
+.formulario-trecho textarea {
+  width: 100%;
+  height: 38px;
+  min-height: 38px;
+
+  margin: 0;
+  padding: 5px 7px;
+
+  box-sizing: border-box;
+
+  font-size: 12px;
+
+  border: 1px solid #d1d5db;
+  border-radius: 5px;
+
+  resize: vertical;
+}
+
+.botoes-trecho {
+  display: flex;
+  gap: 5px;
+
+  margin-top: 4px;
+}
+
+.botoes-trecho button {
+  flex: 1;
+
+  padding: 6px 4px;
+
+  font-size: 11px;
+
+  border: none;
+  border-radius: 5px;
+
+  cursor: pointer;
+}
+
+/* =====================================================
+   CELULAR
+===================================================== */
+
+@media (max-width: 600px) {
+
+  .formulario-trecho {
+    max-width: 100%;
+
+    padding: 9px;
+
+    gap: 3px;
+
+    border-radius: 8px;
+  }
+
+  .formulario-trecho h3 {
+    font-size: 15px;
+    margin-bottom: 3px;
+  }
+
+  .formulario-trecho label {
+    font-size: 12px;
+  }
+
+  .formulario-trecho input,
+  .formulario-trecho select {
+    height: 32px;
+    font-size: 13px;
+  }
+
+  .formulario-trecho textarea {
+    min-height: 42px;
+    font-size: 13px;
+  }
+
+  .botoes-trecho {
+    margin-top: 4px;
+    gap: 5px;
+  }
+
+  .botoes-trecho button {
+    padding: 7px 5px;
+    font-size: 12px;
+  }
+
+}
+@media (max-width: 600px) {
+
+  .controles-rede .formulario-trecho {
+    width: 92% !important;
+    max-width: 340px !important;
+
+    margin: 6px auto 10px auto !important;
+
+    padding: 8px !important;
+    gap: 2px !important;
+  }
+
+  .controles-rede .formulario-trecho h3 {
+    margin: 0 0 4px 0 !important;
+    font-size: 15px !important;
+  }
+
+  .controles-rede .formulario-trecho label {
+    margin: 2px 0 1px 0 !important;
+    font-size: 11px !important;
+  }
+
+  .controles-rede .formulario-trecho input,
+  .controles-rede .formulario-trecho select {
+    height: 30px !important;
+    padding: 0 7px !important;
+    font-size: 12px !important;
+  }
+
+  .controles-rede .formulario-trecho textarea {
+    min-height: 36px !important;
+    height: 36px !important;
+    padding: 5px 7px !important;
+    font-size: 12px !important;
+  }
+
+  .controles-rede .botoes-trecho {
+    margin-top: 4px !important;
+    gap: 5px !important;
+  }
+
+  .controles-rede .botoes-trecho button {
+    padding: 6px 4px !important;
+    font-size: 11px !important;
+  }
+}
+.formulario-trecho {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 4px !important;
+}
+
+.campo-trecho {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  margin: 0;
+  padding: 0;
+}
+
+.campo-trecho label {
+  margin: 0 !important;
+  padding: 0 !important;
+  font-size: 12px;
+  line-height: 14px;
+}
+
+.campo-trecho input,
+.campo-trecho select {
+  margin: 0 !important;
+  height: 30px !important;
+  padding: 0 7px !important;
+}
+
+.campo-trecho textarea {
+  margin: 0 !important;
+  height: 38px !important;
+  min-height: 38px !important;
+  padding: 5px 7px !important;
+}
+
+.formulario-trecho h3 {
+  margin: 0 0 3px 0 !important;
+}
+
+.botoes-trecho {
+  margin-top: 4px !important;
+}
+
+/* =====================================================
+   POPUP REDE DE ÁGUA - TAMANHO EQUILIBRADO
+===================================================== */
+
+.popup-rede-agua .leaflet-popup-content-wrapper {
+  background: #e8f4fc !important;
+  border-radius: 8px !important;
+  padding: 0 !important;
+
+  border: 1px solid #b8dcef !important;
+}
+
+.popup-rede-agua .leaflet-popup-content {
+  width: 200px !important;
+  min-width: 200px !important;
+
+  margin: 8px 10px !important;
+
+  line-height: 1.2 !important;
+}
+
+.conteudo-popup-rede {
+  background: #e8f4fc !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.conteudo-popup-rede h3 {
+  color: #075985 !important;
+  margin: 0 0 6px 0 !important;
+  padding: 0 !important;
+
+  font-size: 15px !important;
+  line-height: 18px !important;
+}
+
+.conteudo-popup-rede p {
+  margin: 3px 0 !important;
+  padding: 0 !important;
+
+  font-size: 12px !important;
+  line-height: 16px !important;
+}
+
+.botoes-popup-rede {
+  display: flex;
+  gap: 6px;
+
+  margin-top: 7px !important;
+  padding: 0 !important;
+}
+
+.botoes-popup-rede button {
+  flex: 1;
+
+  margin: 0 !important;
+  padding: 6px 5px !important;
+
+  border: none;
+  border-radius: 5px;
+
+  font-size: 11px !important;
+  line-height: 14px !important;
+
+  cursor: pointer;
+}
+
+
+/* =====================================================
+   CELULAR
+===================================================== */
+
+@media (max-width: 600px) {
+
+  .popup-rede-agua .leaflet-popup-content {
+    width: 185px !important;
+    min-width: 185px !important;
+
+    margin: 7px 9px !important;
+  }
+
+  .conteudo-popup-rede h3 {
+    font-size: 14px !important;
+    line-height: 17px !important;
+
+    margin-bottom: 5px !important;
+  }
+
+  .conteudo-popup-rede p {
+    margin: 2px 0 !important;
+
+    font-size: 12px !important;
+    line-height: 15px !important;
+  }
+
+  .botoes-popup-rede {
+    gap: 5px;
+    margin-top: 6px !important;
+  }
+
+  .botoes-popup-rede button {
+    padding: 6px 4px !important;
+
+    font-size: 10px !important;
+    line-height: 13px !important;
+  }
+}
+/* =====================================================
+   COR DO POPUP DA REDE
+===================================================== */
+
+.leaflet-popup.popup-rede-agua
+.leaflet-popup-content-wrapper {
+  background: #ffffff !important;
+  border: 1px solid #1c878e !important;
+  border-radius: 9px !important;
+}
+
+.leaflet-popup.popup-rede-agua
+.leaflet-popup-tip {
+  background: #ffffff !important;
+}
+
+.leaflet-popup.popup-rede-agua
+.leaflet-popup-content {
+  background: transparent !important;
+}
+
+.popup-rede-agua .conteudo-popup-rede {
+  background: transparent !important;
+}
+
+.controle-camadas-rede {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 8px;
+}
+
+.controle-camadas-rede button {
+  padding: 7px 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 7px;
+  background: #ffffff;
+  cursor: pointer;
+}
+
+.controle-camadas-rede button.ativo {
+  background: #0b6fa4;
+  color: #ffffff;
+  border-color: #0b6fa4;
+}
+
+@media (max-width: 600px) {
+  .controle-camadas-rede button {
+    padding: 6px 9px;
+    font-size: 12px;
+  }
+}
+.formulario-ponto-rede {
+  width: 100%;
+  max-width: 340px;
+  padding: 10px;
+  margin-top: 8px;
+
+  background: #eef8ff;
+  border: 1px solid #b8dcef;
+  border-radius: 8px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.formulario-ponto-rede h3 {
+  margin: 0 0 4px 0;
+}
+
+.campo-ponto-rede {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.campo-ponto-rede label {
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.cores-ponto-rede {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.botoes-ponto-rede {
+  display: flex;
+  gap: 6px;
+  margin-top: 5px;
+}
+
+.botoes-ponto-rede button {
+  flex: 1;
+}
+
+/* =====================================================
+   FORMULÁRIO FLUTUANTE - PONTO DA REDE
+===================================================== */
+
+.mapa-rede-agua {
+  position: relative;
+}
+
+.formulario-ponto-flutuante {
+  position: absolute;
+
+  top: 12px;
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  width: calc(100% - 24px);
+  max-width: 340px;
+
+  max-height: calc(100% - 24px);
+  overflow-y: auto;
+
+  margin: 0 !important;
+  padding: 10px;
+
+  box-sizing: border-box;
+
+  background: #eef8ff;
+
+  border:
+    1px solid #9ccfe8;
+
+  border-radius: 9px;
+
+  z-index: 2000;
+
+  box-shadow:
+    0 8px 24px
+    rgba(0, 0, 0, 0.25);
+}
+
+
+.formulario-ponto-flutuante h3 {
+  margin: 0 0 6px 0;
+  font-size: 15px;
+}
+
+
+.formulario-ponto-flutuante
+.campo-ponto-rede {
+  display: flex;
+  flex-direction: column;
+
+  gap: 2px;
+
+  margin-bottom: 5px;
+}
+
+
+.formulario-ponto-flutuante
+.campo-ponto-rede label {
+  margin: 0;
+
+  font-size: 12px;
+  font-weight: 600;
+}
+
+
+.formulario-ponto-flutuante
+input,
+.formulario-ponto-flutuante
+select {
+  width: 100%;
+  height: 32px;
+
+  box-sizing: border-box;
+
+  margin: 0;
+}
+
+
+.formulario-ponto-flutuante
+textarea {
+  width: 100%;
+  min-height: 42px;
+
+  box-sizing: border-box;
+
+  margin: 0;
+
+  resize: vertical;
+}
+
+
+.cores-ponto-rede {
+  display: flex;
+
+  gap: 8px;
+
+  flex-wrap: wrap;
+
+  padding: 3px 2px;
+}
+
+
+.botoes-ponto-rede {
+  display: flex;
+
+  gap: 6px;
+
+  margin-top: 6px;
+}
+
+
+.botoes-ponto-rede button {
+  flex: 1;
+
+  min-height: 34px;
+}
+
+
+/* =====================================================
+   CELULAR
+===================================================== */
+
+@media (max-width: 600px) {
+
+  .formulario-ponto-flutuante {
+    top: 8px;
+
+    width:
+      calc(100% - 16px);
+
+    max-height:
+      calc(100% - 16px);
+
+    padding: 8px;
+  }
+
+  .formulario-ponto-flutuante
+  .campo-ponto-rede {
+    margin-bottom: 3px;
+  }
+
+  .formulario-ponto-flutuante
+  input,
+  .formulario-ponto-flutuante
+  select {
+    height: 30px;
+
+    font-size: 12px;
+  }
+
+  .formulario-ponto-flutuante
+  textarea {
+    min-height: 38px;
+
+    font-size: 12px;
+  }
+
+}
+/* =====================================================
+   POPUP - PONTO DA REDE
+===================================================== */
+
+.leaflet-popup.popup-ponto-rede
+.leaflet-popup-content-wrapper {
+  background: #ffffff !important;
+
+  border:
+    1px solid #0b587e !important;
+
+  border-radius:
+    8px !important;
+
+  padding:
+    0 !important;
+}
+
+
+.leaflet-popup.popup-ponto-rede
+.leaflet-popup-tip {
+  background:
+    #eef8ff !important;
+}
+
+
+.leaflet-popup.popup-ponto-rede
+.leaflet-popup-content {
+  width:
+    200px !important;
+
+  min-width:
+    200px !important;
+
+  margin:
+    8px 10px !important;
+
+  line-height:
+    1.2 !important;
+}
+
+
+.conteudo-popup-ponto {
+  margin:
+    0 !important;
+
+  padding:
+    0 !important;
+}
+
+
+.conteudo-popup-ponto h3 {
+  margin:
+    0 0 6px 0 !important;
+
+  padding:
+    0 !important;
+
+  font-size:
+    15px !important;
+
+  line-height:
+    18px !important;
+
+  color:
+     #1e6385;
+}
+
+
+.conteudo-popup-ponto p {
+  margin:
+    3px 0 !important;
+
+  padding:
+    0 !important;
+
+  font-size:
+    12px !important;
+
+  line-height:
+    16px !important;
+}
+
+
+.botoes-popup-ponto {
+  display:
+    flex;
+
+  gap:
+    6px;
+
+  margin-top:
+    7px !important;
+
+  padding:
+    0 !important;
+}
+
+
+.botoes-popup-ponto button {
+  flex:
+    1;
+
+  margin:
+    0 !important;
+
+  padding:
+    6px 5px !important;
+
+  border:
+    none;
+
+  border-radius:
+    5px;
+
+  font-size:
+    11px !important;
+
+  cursor:
+    pointer;
+}
+
+
+/* =====================================================
+   CELULAR
+===================================================== */
+
+@media (max-width: 600px) {
+
+  .leaflet-popup.popup-ponto-rede
+  .leaflet-popup-content {
+    width:
+      185px !important;
+
+    min-width:
+      185px !important;
+
+    margin:
+      7px 9px !important;
+  }
+
+
+  .conteudo-popup-ponto h3 {
+    font-size:
+      14px !important;
+
+    line-height:
+      17px !important;
+
+    margin-bottom:
+      5px !important;
+  }
+
+
+  .conteudo-popup-ponto p {
+    margin:
+      2px 0 !important;
+
+    font-size:
+      12px !important;
+
+    line-height:
+      15px !important;
+  }
+
+
+  .botoes-popup-ponto {
+    gap:
+      5px;
+
+    margin-top:
+      6px !important;
+  }
+
+
+  .botoes-popup-ponto button {
+    padding:
+      6px 4px !important;
+
+    font-size:
+      10px !important;
+  }
+
+}
+/* =====================================================
+   POPUP - REGISTRO DA REDE
+===================================================== */
+
+.leaflet-popup.popup-registro-rede
+.leaflet-popup-content-wrapper {
+  background: #ffffff !important;
+
+  border: 1px solid #0b5072 !important;
+  border-radius: 8px !important;
+
+  padding: 0 !important;
+}
+
+
+.leaflet-popup.popup-registro-rede
+.leaflet-popup-tip {
+  background: #eef8ff !important;
+}
+
+
+.leaflet-popup.popup-registro-rede
+.leaflet-popup-content {
+  width: 200px !important;
+  min-width: 200px !important;
+
+  margin: 8px 10px !important;
+
+  line-height: 1.2 !important;
+}
+
+
+/* CONTEÚDO */
+
+.conteudo-popup-registro {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+
+.conteudo-popup-registro h3 {
+  margin: 0 0 6px 0 !important;
+  padding: 0 !important;
+
+  font-size: 15px !important;
+  line-height: 18px !important;
+
+  color: #1e6385;
+}
+
+
+.conteudo-popup-registro p {
+  margin: 3px 0 !important;
+  padding: 0 !important;
+
+  font-size: 12px !important;
+  line-height: 16px !important;
+}
+
+
+/* BOTÕES */
+
+.botoes-popup-registro {
+  display: flex;
+
+  gap: 6px;
+
+  margin-top: 7px !important;
+  padding: 0 !important;
+}
+
+
+.botoes-popup-registro button {
+  flex: 1;
+
+  margin: 0 !important;
+  padding: 6px 5px !important;
+
+  border: none;
+  border-radius: 5px;
+
+  font-size: 11px !important;
+
+  cursor: pointer;
+}
+
+
+/* =====================================================
+   CELULAR
+===================================================== */
+
+@media (max-width: 600px) {
+
+  .leaflet-popup.popup-registro-rede
+  .leaflet-popup-content {
+    width: 185px !important;
+    min-width: 185px !important;
+
+    margin: 7px 9px !important;
+  }
+
+
+  .conteudo-popup-registro h3 {
+    font-size: 14px !important;
+    line-height: 17px !important;
+
+    margin-bottom: 5px !important;
+  }
+
+
+  .conteudo-popup-registro p {
+    margin: 2px 0 !important;
+
+    font-size: 12px !important;
+    line-height: 15px !important;
+  }
+
+
+  .botoes-popup-registro {
+    gap: 5px;
+
+    margin-top: 6px !important;
+  }
+
+
+  .botoes-popup-registro button {
+    padding: 6px 4px !important;
+
+    font-size: 10px !important;
+  }
+
+}
