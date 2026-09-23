@@ -389,6 +389,75 @@ async function salvarLocalizacao() {
     setSalvandoLocalizacao(false)
   }
 }
+
+async function editarDadosUnidade(
+  unidade,
+  novosDados
+) {
+  try {
+    const dadosAtualizados = {
+      matricula:
+        novosDados.matricula || null,
+
+      hidrometro:
+        novosDados.hidrometro || null,
+
+      lote:
+        novosDados.lote || null,
+
+      quadra:
+        novosDados.quadra || null,
+    }
+
+    const { error } = await supabase
+      .from('unidades')
+      .update(dadosAtualizados)
+      .eq('id', unidade.id)
+
+    if (error) {
+      console.error(
+        'Erro ao atualizar dados da unidade:',
+        error
+      )
+
+      window.alert(
+        'Não foi possível atualizar os dados da unidade.'
+      )
+
+      return false
+    }
+
+    unidade.matricula =
+      dadosAtualizados.matricula
+
+    unidade.hidrometro =
+      dadosAtualizados.hidrometro
+
+    unidade.lote =
+      dadosAtualizados.lote
+
+    unidade.quadra =
+      dadosAtualizados.quadra
+
+    window.alert(
+      'Dados atualizados com sucesso!'
+    )
+
+    return true
+
+  } catch (error) {
+    console.error(
+      'Erro ao editar unidade:',
+      error
+    )
+
+    window.alert(
+      'Ocorreu um erro ao atualizar os dados.'
+    )
+
+    return false
+  }
+}
   const chavePosicaoMapa =
     `mapa-${setor}-${localidade}`
 
@@ -662,6 +731,7 @@ async function salvarLocalizacao() {
   fotosUnidades={fotosUnidades}
   onAmpliarFoto={setFotoAmpliada}
   onAjustarLocalizacao={iniciarAjusteLocalizacao}
+  onEditarDados={editarDadosUnidade}
   alterarSituacao={alterarSituacao}
   excluirUnidade={excluirUnidade}
 />

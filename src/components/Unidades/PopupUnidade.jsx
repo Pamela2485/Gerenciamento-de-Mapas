@@ -1,3 +1,5 @@
+import { useState } from 'react'
+import { useMap } from 'react-leaflet'
 import FotosPopupUnidade from './FotosPopupUnidade'
 
 function PopupUnidade({
@@ -5,9 +7,286 @@ function PopupUnidade({
   fotosUnidades = [],
   onAmpliarFoto,
   onAjustarLocalizacao,
+  onEditarDados,
   alterarSituacao,
   excluirUnidade,
 }) {
+  const map = useMap()
+
+  const [editando, setEditando] = useState(false)
+
+  const [matricula, setMatricula] = useState(
+    unidade.matricula || ''
+  )
+
+  const [hidrometro, setHidrometro] = useState(
+    unidade.hidrometro || ''
+  )
+
+  const [lote, setLote] = useState(
+    unidade.lote || ''
+  )
+
+  const [quadra, setQuadra] = useState(
+    unidade.quadra || ''
+  )
+
+  const [salvando, setSalvando] = useState(false)
+
+  function atualizarPopup() {
+    setTimeout(() => {
+      const popup = map._popup
+
+      if (popup) {
+        popup.update()
+      }
+    }, 0)
+  }
+
+  function abrirEdicao() {
+    setMatricula(unidade.matricula || '')
+    setHidrometro(unidade.hidrometro || '')
+    setLote(unidade.lote || '')
+    setQuadra(unidade.quadra || '')
+
+    setEditando(true)
+
+    atualizarPopup()
+  }
+
+  function cancelarEdicao() {
+    setMatricula(unidade.matricula || '')
+    setHidrometro(unidade.hidrometro || '')
+    setLote(unidade.lote || '')
+    setQuadra(unidade.quadra || '')
+
+    setEditando(false)
+
+    atualizarPopup()
+  }
+
+  async function salvarEdicao() {
+    if (!onEditarDados) {
+      return
+    }
+
+    setSalvando(true)
+
+    try {
+      const sucesso = await onEditarDados(
+        unidade,
+        {
+          matricula: matricula.trim(),
+          hidrometro: hidrometro.trim(),
+          lote: lote.trim(),
+          quadra: quadra.trim(),
+        }
+      )
+
+      if (sucesso) {
+        setEditando(false)
+        atualizarPopup()
+      }
+    } finally {
+      setSalvando(false)
+    }
+  }
+
+  const estiloInput = {
+    width: '100%',
+    height: '32px',
+    boxSizing: 'border-box',
+    padding: '5px 7px',
+    border: '1px solid #cbd5e1',
+    borderRadius: '6px',
+    fontSize: '13px',
+    background: '#ffffff',
+    color: '#222222',
+    outline: 'none',
+  }
+
+  const estiloLabel = {
+    display: 'block',
+    fontSize: '11px',
+    fontWeight: '700',
+    color: 'white',
+    marginBottom: '3px',
+  }
+
+  /*
+    =====================================================
+    MODO DE EDIÇÃO
+    =====================================================
+  */
+
+  if (editando) {
+    return (
+      <div
+        style={{
+          width: '230px',
+          fontFamily: 'Arial, sans-serif',
+          borderRadius: '10px',
+          padding: '8px',
+          boxSizing: 'border-box',
+        }}
+      >
+        <div
+          style={{
+            fontSize: '14px',
+            fontWeight: '700',
+            color: 'white',
+            paddingBottom: '6px',
+            marginBottom: '7px',
+            borderBottom:
+              '1px solid rgba(255,255,255,0.35)',
+          }}
+        >
+          ✏️ Editar unidade
+        </div>
+
+        {/* MATRÍCULA */}
+
+        <div
+          style={{
+            marginBottom: '6px',
+          }}
+        >
+          <label style={estiloLabel}>
+            Matrícula
+          </label>
+
+          <input
+            type="text"
+            value={matricula}
+            onChange={(e) =>
+              setMatricula(e.target.value)
+            }
+            style={estiloInput}
+          />
+        </div>
+
+        {/* HIDRÔMETRO */}
+
+        <div
+          style={{
+            marginBottom: '6px',
+          }}
+        >
+          <label style={estiloLabel}>
+            Hidrômetro
+          </label>
+
+          <input
+            type="text"
+            value={hidrometro}
+            onChange={(e) =>
+              setHidrometro(e.target.value)
+            }
+            style={estiloInput}
+          />
+        </div>
+
+        {/* LOTE E QUADRA */}
+
+        <div
+          style={{
+            display: 'grid',
+            gridTemplateColumns: '1fr 1fr',
+            gap: '6px',
+            marginBottom: '8px',
+          }}
+        >
+          <div>
+            <label style={estiloLabel}>
+              Lote
+            </label>
+
+            <input
+              type="text"
+              value={lote}
+              onChange={(e) =>
+                setLote(e.target.value)
+              }
+              style={estiloInput}
+            />
+          </div>
+
+          <div>
+            <label style={estiloLabel}>
+              Quadra
+            </label>
+
+            <input
+              type="text"
+              value={quadra}
+              onChange={(e) =>
+                setQuadra(e.target.value)
+              }
+              style={estiloInput}
+            />
+          </div>
+        </div>
+
+        {/* BOTÕES */}
+
+        <div
+          style={{
+            display: 'grid',
+            gridTemplateColumns: '1fr 1fr',
+            gap: '6px',
+          }}
+        >
+          <button
+            type="button"
+            onClick={cancelarEdicao}
+            disabled={salvando}
+            style={{
+              border: '1px solid #d0d7de',
+              borderRadius: '6px',
+              padding: '7px 5px',
+              background: '#ffffff',
+              color: '#333333',
+              fontSize: '12px',
+              cursor: salvando
+                ? 'not-allowed'
+                : 'pointer',
+            }}
+          >
+            Cancelar
+          </button>
+
+          <button
+            type="button"
+            onClick={salvarEdicao}
+            disabled={salvando}
+            style={{
+              border: '1px solid #198754',
+              borderRadius: '6px',
+              padding: '7px 5px',
+              background: '#198754',
+              color: 'white',
+              fontSize: '12px',
+              fontWeight: '700',
+              cursor: salvando
+                ? 'not-allowed'
+                : 'pointer',
+            }}
+          >
+            {salvando
+              ? 'Salvando...'
+              : '💾 Salvar'}
+          </button>
+        </div>
+      </div>
+    )
+  }
+
+  /*
+    =====================================================
+    POPUP NORMAL
+    =====================================================
+  */
+
   return (
     <div
       style={{
@@ -28,7 +307,6 @@ function PopupUnidade({
           marginBottom: '8px',
         }}
       >
-
         <div
           style={{
             fontSize: '16px',
@@ -46,11 +324,13 @@ function PopupUnidade({
             color: 'white',
           }}
         >
-          {unidade.setor} • L{unidade.lote || '-'} • Q{unidade.quadra || '-'}
+          {unidade.setor}
+          {' • '}
+          L{unidade.lote || '-'}
+          {' • '}
+          Q{unidade.quadra || '-'}
         </div>
-
       </div>
-
 
       {/* INFORMAÇÕES */}
 
@@ -59,7 +339,6 @@ function PopupUnidade({
           marginBottom: '8px',
         }}
       >
-
         <div
           style={{
             fontSize: '13px',
@@ -92,9 +371,7 @@ function PopupUnidade({
             ? '🟢 ATIVA'
             : '🔴 CORTADA'}
         </div>
-
       </div>
-
 
       {/* NAVEGAR */}
 
@@ -140,7 +417,6 @@ function PopupUnidade({
         🧭 Navegar até aqui
       </button>
 
-
       {/* AJUSTAR LOCALIZAÇÃO */}
 
       {onAjustarLocalizacao && (
@@ -165,7 +441,6 @@ function PopupUnidade({
         </button>
       )}
 
-
       {/* FOTOS */}
 
       <FotosPopupUnidade
@@ -174,7 +449,6 @@ function PopupUnidade({
         onAmpliarFoto={onAmpliarFoto}
       />
 
-
       {/* MAIS OPÇÕES */}
 
       <details
@@ -182,7 +456,6 @@ function PopupUnidade({
           marginTop: '5px',
         }}
       >
-
         <summary
           style={{
             cursor: 'pointer',
@@ -200,6 +473,28 @@ function PopupUnidade({
             marginTop: '5px',
           }}
         >
+
+          {/* EDITAR DADOS */}
+
+          {onEditarDados && (
+            <button
+              type="button"
+              onClick={abrirEdicao}
+              style={{
+                width: '100%',
+                border: '1px solid #1683d8',
+                borderRadius: '6px',
+                padding: '7px',
+                background: '#ffffff',
+                color: '#1683d8',
+                fontWeight: '600',
+                cursor: 'pointer',
+                marginBottom: '5px',
+              }}
+            >
+              ✏️ Editar dados
+            </button>
+          )}
 
           {/* ALTERAR SITUAÇÃO */}
 
@@ -227,7 +522,6 @@ function PopupUnidade({
             </button>
           )}
 
-
           {/* EXCLUIR */}
 
           {excluirUnidade && (
@@ -254,7 +548,6 @@ function PopupUnidade({
           )}
 
         </div>
-
       </details>
 
     </div>
