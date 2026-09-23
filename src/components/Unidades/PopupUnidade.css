@@ -1,0 +1,77 @@
+/* =====================================================
+   POPUP DA UNIDADE
+   ===================================================== */
+
+.popup-unidade {
+  width: 230px;
+  font-family: Arial, sans-serif;
+  border-radius: 10px;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+
+/* =====================================================
+   CELULAR
+   ===================================================== */
+
+@media (max-width: 600px) {
+
+  .popup-unidade {
+    width: 205px;
+    padding: 5px;
+  }
+
+  /* Cabeçalho */
+
+  .popup-unidade > div:first-child {
+    padding-bottom: 5px !important;
+    margin-bottom: 5px !important;
+  }
+
+  .popup-unidade > div:first-child > div:first-child {
+    font-size: 14px !important;
+  }
+
+  .popup-unidade > div:first-child > div:nth-child(2) {
+    font-size: 11px !important;
+    margin-top: 2px !important;
+  }
+
+  /* Informações */
+
+  .popup-unidade > div:nth-child(2) {
+    margin-bottom: 5px !important;
+  }
+
+  .popup-unidade > div:nth-child(2) > div:first-child {
+    font-size: 11px !important;
+  }
+
+  /* Situação ATIVA / CORTADA */
+
+  .popup-unidade > div:nth-child(2) > div:nth-child(2) {
+    margin-top: 4px !important;
+    padding: 2px 6px !important;
+    font-size: 10px !important;
+  }
+
+  /* Botões principais */
+
+  .popup-unidade > button {
+    padding: 5px !important;
+    margin-bottom: 4px !important;
+    font-size: 12px !important;
+  }
+
+  /* Fotos e Mais opções */
+
+  .popup-unidade summary {
+    padding: 4px !important;
+    font-size: 11px !important;
+  }
+
+  .popup-unidade details {
+    margin-top: 2px !important;
+  }
+}

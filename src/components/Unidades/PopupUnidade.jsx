@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { useMap } from 'react-leaflet'
 import FotosPopupUnidade from './FotosPopupUnidade'
+import './PopupUnidade.css'
 
 function PopupUnidade({
   unidade,
@@ -121,15 +122,9 @@ function PopupUnidade({
 
   if (editando) {
     return (
-      <div
-        style={{
-          width: '230px',
-          fontFamily: 'Arial, sans-serif',
-          borderRadius: '10px',
-          padding: '8px',
-          boxSizing: 'border-box',
-        }}
-      >
+      
+      <div className="popup-unidade">
+        
         <div
           style={{
             fontSize: '14px',
