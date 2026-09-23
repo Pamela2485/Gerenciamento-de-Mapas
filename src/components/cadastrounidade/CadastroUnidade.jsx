@@ -481,6 +481,173 @@ function MapaCadastro({
   )
 }
 
+// =====================================================
+// REDUZIR / COMPRIMIR FOTO
+// =====================================================
+
+async function comprimirFoto(arquivo) {
+  if (!arquivo) {
+    return null
+  }
+
+  // Se não for imagem, mantém o arquivo original
+  if (!arquivo.type?.startsWith('image/')) {
+    return arquivo
+  }
+
+  const MAX_LADO = 1600
+  const QUALIDADE = 0.8
+
+  return new Promise((resolve, reject) => {
+    const imagem = new Image()
+    const urlTemporaria =
+      URL.createObjectURL(arquivo)
+
+    imagem.onload = () => {
+      try {
+        let largura = imagem.width
+        let altura = imagem.height
+
+        // Redimensiona mantendo a proporção
+        if (
+          largura > MAX_LADO ||
+          altura > MAX_LADO
+        ) {
+          if (largura >= altura) {
+            altura = Math.round(
+              altura * (MAX_LADO / largura)
+            )
+
+            largura = MAX_LADO
+          } else {
+            largura = Math.round(
+              largura * (MAX_LADO / altura)
+            )
+
+            altura = MAX_LADO
+          }
+        }
+
+        const canvas =
+          document.createElement('canvas')
+
+        canvas.width = largura
+        canvas.height = altura
+
+        const contexto =
+          canvas.getContext('2d')
+
+        if (!contexto) {
+          URL.revokeObjectURL(
+            urlTemporaria
+          )
+
+          reject(
+            new Error(
+              'Não foi possível processar a foto.'
+            )
+          )
+
+          return
+        }
+
+        contexto.drawImage(
+          imagem,
+          0,
+          0,
+          largura,
+          altura
+        )
+
+        canvas.toBlob(
+          (blob) => {
+            URL.revokeObjectURL(
+              urlTemporaria
+            )
+
+            if (!blob) {
+              reject(
+                new Error(
+                  'Não foi possível comprimir a foto.'
+                )
+              )
+
+              return
+            }
+
+            const nomeOriginal =
+              arquivo.name ||
+              'foto.jpg'
+
+            const nomeSemExtensao =
+              nomeOriginal.replace(
+                /\.[^/.]+$/,
+                ''
+              )
+
+            const arquivoComprimido =
+              new File(
+                [blob],
+                `${nomeSemExtensao}.jpg`,
+                {
+                  type: 'image/jpeg',
+                  lastModified:
+                    Date.now(),
+                }
+              )
+
+            console.log(
+              'Foto original:',
+              (
+                arquivo.size /
+                1024 /
+                1024
+              ).toFixed(2),
+              'MB'
+            )
+
+            console.log(
+              'Foto comprimida:',
+              (
+                arquivoComprimido.size /
+                1024 /
+                1024
+              ).toFixed(2),
+              'MB'
+            )
+
+            resolve(
+              arquivoComprimido
+            )
+          },
+          'image/jpeg',
+          QUALIDADE
+        )
+      } catch (error) {
+        URL.revokeObjectURL(
+          urlTemporaria
+        )
+
+        reject(error)
+      }
+    }
+
+    imagem.onerror = () => {
+      URL.revokeObjectURL(
+        urlTemporaria
+      )
+
+      reject(
+        new Error(
+          'Não foi possível abrir a foto selecionada.'
+        )
+      )
+    }
+
+    imagem.src = urlTemporaria
+  })
+}
+
 const localidadesPorSetor = {
   'SETOR 02': ['TORNEIRO'],
   'SETOR 03': ['ESPLANADA'],
@@ -1292,19 +1459,38 @@ function CadastroUnidade({
 
 
             <input
+  type="file"
+  accept="image/*"
+  onChange={async (e) => {
+    const arquivo =
+      e.target.files?.[0]
 
-              type="file"
+    if (!arquivo) {
+      setFotoFrente(null)
+      return
+    }
 
-              accept="image/*"
+    try {
+      const fotoComprimida =
+        await comprimirFoto(arquivo)
 
-              onChange={(e) =>
-                setFotoFrente(
-                  e.target.files?.[0] ||
-                  null
-                )
-              }
+      setFotoFrente(
+        fotoComprimida
+      )
+    } catch (error) {
+      console.error(
+        'Erro ao processar foto da frente:',
+        error
+      )
 
-            />
+      window.alert(
+        'Não foi possível processar a foto da frente. Tente tirar a foto novamente.'
+      )
+
+      setFotoFrente(null)
+    }
+  }}
+/>
 
 
             {fotoFrente && (
@@ -1330,19 +1516,38 @@ function CadastroUnidade({
 
 
             <input
+  type="file"
+  accept="image/*"
+  onChange={async (e) => {
+    const arquivo =
+      e.target.files?.[0]
 
-              type="file"
+    if (!arquivo) {
+      setFotoHidrometro(null)
+      return
+    }
 
-              accept="image/*"
+    try {
+      const fotoComprimida =
+        await comprimirFoto(arquivo)
 
-              onChange={(e) =>
-                setFotoHidrometro(
-                  e.target.files?.[0] ||
-                  null
-                )
-              }
+      setFotoHidrometro(
+        fotoComprimida
+      )
+    } catch (error) {
+      console.error(
+        'Erro ao processar foto do hidrômetro:',
+        error
+      )
 
-            />
+      window.alert(
+        'Não foi possível processar a foto do hidrômetro. Tente tirar a foto novamente.'
+      )
+
+      setFotoHidrometro(null)
+    }
+  }}
+/>
 
 
             {fotoHidrometro && (
