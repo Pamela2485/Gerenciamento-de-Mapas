@@ -120,6 +120,36 @@ function LocalizarPesquisa({
   return null
 }
 
+function MemorizarPosicaoMapa({ chave }) {
+  const map = useMap()
+
+  useEffect(() => {
+    const salvarPosicao = () => {
+      const centro = map.getCenter()
+      const zoom = map.getZoom()
+
+      sessionStorage.setItem(
+        chave,
+        JSON.stringify({
+          lat: centro.lat,
+          lng: centro.lng,
+          zoom,
+        })
+      )
+    }
+
+    map.on('moveend', salvarPosicao)
+    map.on('zoomend', salvarPosicao)
+
+    return () => {
+      map.off('moveend', salvarPosicao)
+      map.off('zoomend', salvarPosicao)
+    }
+  }, [map, chave])
+
+  return null
+}
+
 function MapaGerencial({
   setor = 'SETOR 02',
   nomeSetor = '',
@@ -359,6 +389,23 @@ async function salvarLocalizacao() {
     setSalvandoLocalizacao(false)
   }
 }
+  const chavePosicaoMapa =
+    `mapa-${setor}-${localidade}`
+
+  const posicaoSalva = (() => {
+    try {
+      const salva = sessionStorage.getItem(
+        chavePosicaoMapa
+      )
+
+      return salva
+        ? JSON.parse(salva)
+        : null
+    } catch {
+      return null
+    }
+  })()
+
   return (
     <div className="pagina-mapa">
 
@@ -488,11 +535,20 @@ async function salvarLocalizacao() {
 )}
 
         <MapContainer
-          center={[
-            -28.68,
-            -49.37,
-          ]}
-          zoom={15}
+          center={
+            posicaoSalva
+              ? [
+                  posicaoSalva.lat,
+                  posicaoSalva.lng,
+                ]
+              : [
+                  -28.68,
+                  -49.37,
+                ]
+          }
+          zoom={
+            posicaoSalva?.zoom ?? 15
+          }
           rotate={true}
           touchRotate={true}
           bearing={0}
@@ -503,11 +559,17 @@ async function salvarLocalizacao() {
         >
           <AtivarRotacaoMapa />
 
-          <CentralizarMapa
-            unidades={
-              unidadesDoSetor
-            }
+          <MemorizarPosicaoMapa
+            chave={chavePosicaoMapa}
           />
+
+          {!posicaoSalva && (
+            <CentralizarMapa
+              unidades={
+                unidadesDoSetor
+              }
+            />
+          )}
 
           <LocalizarPesquisa
   unidade={
