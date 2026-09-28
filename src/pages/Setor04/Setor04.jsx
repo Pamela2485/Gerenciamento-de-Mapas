@@ -8,7 +8,7 @@ function Setor04({
   alterarSituacao,
   excluirUnidade,
 }) {
-  if (mapaSelecionado === 'JANAINA') {
+  if (mapaSelecionado === 'JANAÍNA') {
     return (
       <Janaina
         unidades={unidades}

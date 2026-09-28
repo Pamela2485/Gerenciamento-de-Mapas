@@ -9,8 +9,8 @@ function Janaina({
   return (
     <MapaGerencial
       setor="SETOR 04"
-      nomeSetor="JANAINA"
-      localidade="JANAINA"
+      nomeSetor="JANAÍNA"
+      localidade="JANAÍNA"
       unidades={unidades}
       fotosUnidades={fotosUnidades}
       alterarSituacao={alterarSituacao}
